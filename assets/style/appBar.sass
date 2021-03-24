@@ -1,0 +1,16 @@
+header
+    background: transparent
+    .logo
+        width: 4em
+    .menu
+        cursor: pointer
+        svg path
+            transition: .3s ease-out
+            &:first-of-type
+                opacity: .65
+            &:last-of-type
+                opacity: .4
+        &:hover svg path
+            opacity: 1
+            &:last-of-type
+                d: path('M1 17.5H41')

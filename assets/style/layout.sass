@@ -1,0 +1,34 @@
+// style
+*
+    color: $secondary
+    font-family: $primary_font_family
+    cursor: none
+// background noise
+#noise
+    width: 100vw
+    height: 100vh
+    background-image: url('http://localhost:3000/imgs/noise.png')
+    background-repeat: repeat
+    opacity: .7
+    z-index: 1
+    position: fixed
+    top: 0
+    left: 0
+// curser
+$D: 40px
+#curser
+    background: #fff
+    width: $D
+    height: $D
+    opacity: 1
+    mix-blend-mode: difference
+    border-radius: 50%
+    z-index: 500000
+    position: fixed
+    top: 0
+    left: 0
+// application
+.v-application
+    background: $primary !important
+    position: relative
+    // overflow: hidden
