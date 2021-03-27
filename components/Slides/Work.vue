@@ -4,12 +4,14 @@
             h1.text-capitalize.bigFont #[splitter(text='work')]
         v-container.container--fluid
             v-row(align='center')
-                v-col(v-for="poject in pojects" :key="poject" cols=3)
-                    v-card
+                v-spacer
+                v-col(v-for="poject in pojects" :key="poject.title" cols=3)
+                    v-card.text-capitalize
                         v-img(:src="poject.img")
                         v-card-subtitle(v-text='poject.date')
-                        v-card-subtitle(v-text='poject.sub')
-                        v-card-title(v-text='poject.title')
+                        .title
+                            v-card-subtitle.pb-0(v-text='poject.sub')
+                            v-card-title.pt-0.text-h4(v-text='poject.title')
 </template>
 
 <script>
@@ -43,12 +45,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.bgHead
-    position: absolute
-.container
-    height: 100%
-    z-index: 2
-    position: relative
-    .row
-        height: 100%
+@import "@/assets/style/Work"
 </style>

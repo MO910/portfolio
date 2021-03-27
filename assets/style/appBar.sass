@@ -1,16 +1,76 @@
-header
-    background: transparent
-    .logo
-        width: 4em
+.appBar
+    // position: relative
+    header
+        background: transparent
+        .logo
+            width: 4em
+        .menuIcon
+            svg path
+                transition: .3s ease-out
+                &:first-of-type
+                    opacity: .65
+                &:last-of-type
+                    opacity: .4
+            &.curser_hovering svg path
+                opacity: 1
+                &:last-of-type
+                    d: path('M1 17.5H41')
     .menu
-        cursor: pointer
-        svg path
-            transition: .3s ease-out
-            &:first-of-type
-                opacity: .65
-            &:last-of-type
-                opacity: .4
-        &:hover svg path
+        width: 100vw
+        height: 0
+        overflow: hidden
+        transition: height .8s ease-out
+        position: absolute
+        &.active
             opacity: 1
-            &:last-of-type
-                d: path('M1 17.5H41')
+            height: 100vh
+            // animation: menuPopIn 1s forwards ease-out
+            &::before
+                z-index: 5
+                z-index: 5
+
+            $rowCount: 5
+            .row .row
+                @for $i from 1 through $rowCount
+                    &:nth-of-type(#{$i})
+                        animation: rowsPopIn .8s forwards #{($i - 1) * 0.3}s ease-in-out
+        &::before
+            content: ''
+            width: 100%
+            height: 100%
+            background: $primary
+            z-index: 1
+            position: absolute
+        .container
+            position: relative
+            z-index: 7
+            > .row
+                height: 100%
+                .row
+                    opacity: 0
+                    transition: all 0.4s ease-out
+                    // @for $i from 1 through 5
+                    //     &:nth-of-type(#{$i})
+                    //         animation: rowsPopIn .8s reverse #{($i - 1) * 0.3}s ease-in-out
+                    &.curser_hover_active.curser_hovering
+                        color: #fff
+                    .col
+                        font-family: $primary_font_family !important
+                        letter-spacing: .3em !important
+                .close
+                    width: 68px
+                    height: 68px
+                    display: inline-block
+// key frames
+@keyframes menuPopIn
+    from
+        height: 0vh
+    to
+        height: 100vh
+@keyframes rowsPopIn
+    from
+        opacity: 0
+        transform: translate(-1em, -1em)
+    to
+        opacity: 1
+        transform: translate(0)

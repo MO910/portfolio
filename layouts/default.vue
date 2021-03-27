@@ -9,7 +9,7 @@
         //- the applecation
         Nuxt
         //- js scripts
-        script(src='js/curser.js')
+        script(src='js/curser.js'  type='module')
 </template>
 
 <script>

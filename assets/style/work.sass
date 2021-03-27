@@ -1,0 +1,20 @@
+.bgHead
+    position: absolute
+.container
+    height: 100%
+    position: relative
+    .row
+        height: 100%
+        .v-card
+            position: relative
+            > *:not(.v-image)
+                // mix-blend-mode: difference
+                position: absolute
+                left: 0
+                &.v-card__subtitle
+                    top: 0
+                    font-family: $secondary_font_family
+                &.title
+                    bottom: 0
+                    *
+                        font-family: $primary_font_family !important

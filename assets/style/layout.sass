@@ -2,6 +2,7 @@
 *
     color: $secondary
     font-family: $primary_font_family
+    user-select: none
     cursor: none
 // background noise
 #noise
@@ -14,6 +15,9 @@
     position: fixed
     top: 0
     left: 0
+    &.menu-active
+        z-index: 6
+
 // curser
 $D: 40px
 #curser
@@ -23,12 +27,25 @@ $D: 40px
     opacity: 1
     mix-blend-mode: difference
     border-radius: 50%
-    z-index: 500000
+    // animation: breave 1s ease infinite
+    z-index: 10
     position: fixed
     top: 0
     left: 0
+    $mini: 30%
 // application
 .v-application
     background: $primary !important
     position: relative
     // overflow: hidden
+// key frame
+@keyframes breave
+    from
+        transform: scale(1.5)
+    to
+        transform: scale(1)
+@keyframes normalize
+    99%
+        z-index: 6
+    to
+        z-index: 1

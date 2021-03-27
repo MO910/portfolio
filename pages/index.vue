@@ -1,19 +1,20 @@
 <template lang="pug">
     v-container.SlidesContainer.container--fluid.pa-0
-        Heading
-        Work.active
-        .Slide Slide 3
-        //- script(src='js/split.js')
-        script(src='js/general.js')
+        Heading.active
+        Work
+        ContactMe
+        
         script(src='js/scroll.js')
+        script(src='js/general.js')
 </template>
 
 <script>
 // Slides
 import Heading from "@/components/Slides/Heading";
 import Work from "@/components/Slides/Work";
+import ContactMe from "@/components/Slides/ContactMe";
 export default {
-    components: { Heading, Work },
+    components: { Heading, Work, ContactMe },
 };
 </script>
 <style lang="sass">

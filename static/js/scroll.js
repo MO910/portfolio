@@ -14,21 +14,72 @@ function sort() {
     });
 }
 sort();
+//
+const setActiveClass = (target, last) => {
+    console.log($(".curser_hover_active"));
+    $(".Slide .curser_hover_active")
+        .removeClass("curser_hover_active")
+        .addClass("curser_hover");
+
+    $(".Slide .curser_pointer_active")
+        .removeClass("curser_pointer_active")
+        .addClass("curser_pointer");
+
+    console.log($(".shittttttttt"));
+    // // target active
+    // target
+    //     // add hover active prefix
+    //     .find(".curser_hover")
+    //     .removeClass("curser_hover")
+    //     .addClass("curser_hover_active");
+    // target
+    //     // add pointer active prefix
+    //     .find(".curser_pointer")
+    //     .removeClass("curser_pointer")
+    //     .addClass("curser_pointer_active");
+};
+// setActiveClass($(".Slide.active"));
 // mouse wheel event
 let available = true;
 $(window).on("mousewheel", function (e) {
     const active = slides.filter(".active"),
         target = e.originalEvent.wheelDelta < 0 ? "next" : "prev";
+    console.log(active[target](".Slide"));
     if (active[target](".Slide").length && available) {
-        // reset active class
-        active.addClass("moveOut").removeClass("active");
-        active[target]().addClass("moveIn").addClass("active");
+        // last active
+        active
+            // reset active class
+            .removeClass("active")
+            // remove hover active prefix
+            .find(".curser_hover_active")
+            .removeClass("curser_hover_active")
+            .addClass("curser_hover");
+        active
+            // remove pointer active prefix
+            .find(".curser_pointer_active")
+            .removeClass("curser_pointer_active")
+            .addClass("curser_pointer");
+        // target active
+        active[target](".Slide")
+            // reset active class
+            .addClass("active")
+            // add hover active prefix
+            .find(".curser_hover")
+            .removeClass("curser_hover")
+            .addClass("curser_hover_active");
+        active[target](".Slide")
+            // add pointer active prefix
+            .find(".curser_pointer")
+            .removeClass("curser_pointer")
+            .addClass("curser_pointer_active");
+        // sort
         sort();
         // reset available flag
+        available = false;
         setTimeout(() => {
             available = true;
-            $(".moveOut, .moveIn").removeClass("moveOut moveIn");
+            // set dimensions
+            $(window).trigger("resize");
         }, parseFloat(slides.css("transition-duration")) * 1000);
-        available = false;
     }
 });

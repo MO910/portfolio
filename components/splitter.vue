@@ -2,7 +2,6 @@
     .splitter
         span.word(v-for="word in text.split(' ').map((text, index) => (index ? ` ${text}` : text).split(''))")
             span.char(v-for="char in word") {{char}}
-        script(src='js/splitter.js')
 
 </template>
 

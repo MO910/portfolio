@@ -6,3 +6,4 @@ gsap.set(".SlidesContainer .Slide", {
 // gsap.to(".heading.moveOut .head", {
 //     y: 20,
 // });
+console.log($(".curser_hover_active"));
