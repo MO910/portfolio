@@ -4,35 +4,75 @@
     font-family: $primary_font_family
     user-select: none
     cursor: none
+// 
+svg clipPath#bobble path
+    transform-origin: 50px 50px
+    transform: scale(0)
+#invers1
+    width: 100vw
+    height: 100vh
+    mix-blend-mode: difference
+    z-index: 10
+    position: fixed
+    background: #fff
+    clip-path: url(#bobble)
+    transform-origin: 0 0
+    position: absolute
+
+// key frames
+@keyframes ani
+    from
+        d: 'M27,-34.9C35.8,-30.9,44.1,-24,50,-14.3C55.9,-4.6,59.3,7.9,58.5,21.7C57.7,35.4,52.7,50.5,42.2,54.3C31.7,58.2,15.9,50.8,-0.8,52C-17.5,53.1,-35.1,62.8,-44,58.4C-52.9,54.1,-53.2,35.7,-59.5,18.7C-65.9,1.7,-78.3,-13.9,-77.6,-28C-76.9,-42.2,-63,-54.9,-47.9,-56.8C-32.8,-58.8,-16.4,-49.9,-3.6,-45C9.2,-40,18.3,-38.9,27,-34.9Z'
+        transform: scale(0)
+    // 25%
+    //     d: 'M28.5,-37C41.9,-29.5,61.1,-27.8,66.7,-19.6C72.3,-11.3,64.1,3.4,57.8,17.4C51.4,31.5,46.8,44.7,37.4,55C28.1,65.4,14,72.7,0.8,71.5C-12.4,70.4,-24.7,60.7,-38,51.7C-51.3,42.6,-65.4,34.3,-72.5,21.4C-79.6,8.6,-79.5,-8.6,-70.2,-18.3C-60.9,-28.1,-42.2,-30.3,-29,-37.9C-15.7,-45.5,-7.9,-58.4,-0.2,-58.2C7.5,-58,15.1,-44.5,28.5,-37Z'
+    // 50%
+    //     d: 'M28.9,-39.2C37.5,-33.5,44.5,-25.1,48.6,-15.2C52.7,-5.2,53.7,6.3,53,20C52.3,33.6,49.9,49.5,40.8,55.4C31.6,61.3,15.8,57.2,3.7,52.2C-8.4,47.1,-16.9,41,-24.7,34.6C-32.5,28.3,-39.6,21.8,-43.4,13.3C-47.2,4.9,-47.6,-5.3,-48.9,-20.3C-50.1,-35.3,-52.3,-55.1,-44.2,-61C-36.2,-66.9,-18.1,-58.9,-4,-53.4C10.1,-48,20.3,-44.9,28.9,-39.2Z'
+    to
+        d: 'M47.9,-63.9C57.1,-59.2,56.2,-38.6,54.5,-22.7C52.9,-6.8,50.5,4.4,48,16.7C45.5,28.9,42.9,42.1,34.9,47.4C26.8,52.7,13.4,50,1.6,47.8C-10.2,45.6,-20.4,43.9,-26.7,38C-32.9,32.2,-35.2,22.2,-45.8,10.1C-56.3,-2,-75,-16.3,-76.2,-28.5C-77.3,-40.7,-60.9,-50.9,-45.2,-53.5C-29.6,-56.1,-14.8,-51,2.3,-54.1C19.3,-57.3,38.7,-68.5,47.9,-63.9Z'
+        transform: scale(25)
+@keyframes scale
+    from
+        transform: scale(1)
+    to
+        transform: scale(20)
 // background noise
 #noise
     width: 100vw
     height: 100vh
     background-image: url('http://localhost:3000/imgs/noise.png')
     background-repeat: repeat
-    opacity: .7
+    // opacity: .7
     z-index: 1
     position: fixed
-    top: 0
-    left: 0
     &.menu-active
         z-index: 6
 
 // curser
 $D: 40px
-#curser
-    background: #fff
+$color: white
+$mini: 25
+#outerCurser
     width: $D
     height: $D
+    // border: 3px solid $color
+    background: $color
+    border-radius: 50%
+    box-sizing: border-box
     opacity: 1
     mix-blend-mode: difference
-    border-radius: 50%
-    // animation: breave 1s ease infinite
-    z-index: 10
+    z-index: 15
     position: fixed
-    top: 0
-    left: 0
-    $mini: 30%
+#curser
+    width: $D * $mini / 100
+    height: $D * $mini / 100
+    background: $color
+    border-radius: 50%
+    mix-blend-mode: difference
+    z-index: 15
+    position: fixed
+    // top: calc(50% - #{$D * $mini / 200})
+    // left: calc(50% - #{$D * $mini / 200})
 // application
 .v-application
     background: $primary !important

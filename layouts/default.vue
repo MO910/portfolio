@@ -1,9 +1,14 @@
 <template lang="pug">
     v-app
+        //- invers
+        #invers1
+        #invers2
+        include ../static/svg/bobble.pug
         //- noise
         #noise
         //- curser
         #curser
+        #outerCurser
         //- app header navbar
         appBar
         //- the applecation

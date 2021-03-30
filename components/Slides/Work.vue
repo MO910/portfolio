@@ -5,13 +5,14 @@
         v-container.container--fluid
             v-row(align='center')
                 v-spacer
-                v-col(v-for="poject in pojects" :key="poject.title" cols=3)
+                v-col(v-for="poject in pojects" :key="poject.title" cols=3).independent
                     v-card.text-capitalize
                         v-img(:src="poject.img")
                         v-card-subtitle(v-text='poject.date')
                         .title
                             v-card-subtitle.pb-0(v-text='poject.sub')
                             v-card-title.pt-0.text-h4(v-text='poject.title')
+                | Drag >
 </template>
 
 <script>

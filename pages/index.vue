@@ -1,8 +1,8 @@
 <template lang="pug">
     v-container.SlidesContainer.container--fluid.pa-0
-        Heading.active
+        Heading
         Work
-        ContactMe
+        ContactMe.active
         
         script(src='js/scroll.js')
         script(src='js/general.js')

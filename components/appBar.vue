@@ -3,9 +3,12 @@
         v-app-bar.pt-6(app flat color='transparent')
             v-container
                 v-row(justify='space-between' aling='center')
-                    div.logo.curser_pointer_active
-                        v-img(src="svg/logo.svg", alt="logo" width='100%')
-                    div.menuIcon.curser_pointer_active
+                    .logo
+                        v-img(src="svg/logo.svg", alt="logo" height='100%').float-left.curser_pointer_active
+                    v-spacer
+                    .darkMode.float-right.mr-10.curser_pointer_active
+                        include ../static/svg/dark-mode.pug
+                    .menuIcon.float-right.curser_pointer_active
                         include ../static/svg/menu.pug
         .menu
             v-container
